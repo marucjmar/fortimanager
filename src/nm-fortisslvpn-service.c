@@ -225,11 +225,11 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 	g_ptr_array_add (argv, (gpointer) g_strdup ("-c"));
 	g_ptr_array_add (argv, (gpointer) g_strdup (priv->config_file));
 
-	// g_ptr_array_add (argv, (gpointer) g_strdup ("--no-routes"));
-	// g_ptr_array_add (argv, (gpointer) g_strdup ("--no-dns"));
+	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-routes"));
+	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-dns"));
 	ip4_config = nm_connection_get_setting_ip4_config (priv->connection);
 	if (!nm_setting_ip_config_get_ignore_auto_dns (ip4_config)) {
-		// g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-use-peerdns=1"));
+		g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-use-peerdns=1"));
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_GATEWAY);
@@ -265,8 +265,8 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 	g_ptr_array_add (argv, (gpointer) g_strdup ("--pinentry"));
 	g_ptr_array_add (argv, (gpointer) g_strdup (LIBEXECDIR "/nm-fortisslvpn-pinentry"));
 
-	// g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-plugin"));
-	// g_ptr_array_add (argv, (gpointer) g_strdup (PLUGINDIR "/nm-fortisslvpn-pppd-plugin.so"));
+	g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-plugin"));
+	g_ptr_array_add (argv, (gpointer) g_strdup (PLUGINDIR "/nm-fortisslvpn-pppd-plugin.so"));
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_FORTISSLVPN_KEY_REALM);
 	if (value) {
