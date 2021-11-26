@@ -225,7 +225,7 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 	g_ptr_array_add (argv, (gpointer) g_strdup ("-c"));
 	g_ptr_array_add (argv, (gpointer) g_strdup (priv->config_file));
 
-	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-routes"));
+	// g_ptr_array_add (argv, (gpointer) g_strdup ("--no-routes"));
 	g_ptr_array_add (argv, (gpointer) g_strdup ("--no-dns"));
 	ip4_config = nm_connection_get_setting_ip4_config (priv->connection);
 	if (!nm_setting_ip_config_get_ignore_auto_dns (ip4_config)) {
