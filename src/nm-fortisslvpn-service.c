@@ -262,8 +262,8 @@ run_openfortivpn (NMFortisslvpnPlugin *plugin, NMSettingVpn *s_vpn, GError **err
 		g_ptr_array_add (argv, (gpointer) g_strdup (value));
 	}
 
-	// g_ptr_array_add (argv, (gpointer) g_strdup ("--pinentry"));
-	// g_ptr_array_add (argv, (gpointer) g_strdup (LIBEXECDIR "/nm-fortisslvpn-pinentry"));
+	g_ptr_array_add (argv, (gpointer) g_strdup ("--pinentry"));
+	g_ptr_array_add (argv, (gpointer) g_strdup (LIBEXECDIR "/nm-fortisslvpn-pinentry"));
 
 	// g_ptr_array_add (argv, (gpointer) g_strdup ("--pppd-plugin"));
 	// g_ptr_array_add (argv, (gpointer) g_strdup (PLUGINDIR "/nm-fortisslvpn-pppd-plugin.so"));
